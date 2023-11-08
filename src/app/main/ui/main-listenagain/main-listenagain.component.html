@@ -1,8 +1,21 @@
 <section class="py-8">
+  <div class="flex flex-row flex-wrap justify-between">
     <h1 class="font-bold- text-5xl leading-tight">Listen again</h1>
-    <div class="flex flex-row gap-6 mt-4">
-      <div class="flex-1" *ngFor="let songalbum of songsalbums">
+    <div class="flex flex-row gap-4">
+      <button class="p-2 hover:bg-white/10 border border-white/20 rounded-full h-fit" type="button" (click)="GetPrevPageAlbums()">
+        <img class="invert" src="assets/images/main/prevPageIcon.svg" width="22" height="22" alt="Icono para recuperar albumes previos de Youtube Music Realizado por Adrian Morales">   
+      </button>   
+      <button class="p-2 hover:bg-white/10 border border-white/20 rounded-full h-fit" type="button" (click)="GetNextPageAlbums()">
+        <img class="invert" src="assets/images/main/nextPageIcon.svg" width="22" height="22" alt="Icono para recuperar albumes siguientes de Youtube Music Realizado por Adrian Morales">
+      </button>
+    </div>
+  </div>
+  <div class="flex flex-row gap-6 mt-4">
+    <ng-container *ngIf="currentListenAgainData$ | async as album; else loading">
+      <div class="flex-1" *ngFor="let songalbum of album">
         <app-main-albumsongcover [album]="songalbum"/>
       </div>
-    </div>
-  </section>
+    </ng-container>
+    <ng-template #loading > Loading ... </ng-template>
+  </div>
+</section>

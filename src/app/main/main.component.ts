@@ -12,6 +12,7 @@ import { MainRecommendedalbumsComponent } from './ui/main-recommendedalbums/main
 })
 export class MainComponent implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit() {
