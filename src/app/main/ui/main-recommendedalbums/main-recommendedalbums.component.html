@@ -1,0 +1,8 @@
+<section class="py-8">
+  <h1 class="font-bold- text-5xl leading-tight">Recommended albums</h1>
+  <div class="flex flex-row gap-6 mt-4">
+    <div class="flex-1" *ngFor="let album of albums">
+      <app-main-albumsongcover [album]="album"/>
+    </div>
+  </div>
+</section>

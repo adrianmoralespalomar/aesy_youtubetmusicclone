@@ -1,0 +1,7 @@
+main{
+  grid-template-columns: 240px 1fr 1fr;
+  grid-template-areas: 
+  "header header header"
+  "aside main main"
+  "footer footer footer";
+}

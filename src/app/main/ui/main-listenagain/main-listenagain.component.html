@@ -1,0 +1,8 @@
+<section class="py-8">
+    <h1 class="font-bold- text-5xl leading-tight">Listen again</h1>
+    <div class="flex flex-row gap-6 mt-4">
+      <div class="flex-1" *ngFor="let songalbum of songsalbums">
+        <app-main-albumsongcover [album]="songalbum"/>
+      </div>
+    </div>
+  </section>
