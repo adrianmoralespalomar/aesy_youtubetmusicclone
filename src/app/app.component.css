@@ -1,5 +1,6 @@
 main{
   grid-template-columns: 240px 1fr 1fr;
+  grid-template-rows: auto 1fr 100px;
   grid-template-areas: 
   "header header header"
   "aside main main"
