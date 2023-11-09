@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MainAlbumsongcoverComponent } from '../utils/main-albumsongcover/main-albumsongcover.component';
 import { NgFor, NgIf, AsyncPipe } from '@angular/common';
-import { MainService } from '../services/main-service.service';
+import { MainService } from '../../services/main-service.service';
 
 @Component({
   selector: 'app-main-listenagain',

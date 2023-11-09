@@ -2,10 +2,12 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Album } from 'src/models/Album';
 import { BehaviorSubject, Observable, map, switchMap } from 'rxjs';
+import { GlobalConstant } from 'src/constants/global-constant';
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
+  //We get the data first and work with it instead of doing request whenever we search something due to url isnt mine so I don't want to get blocked
   private currentAlbums$=new BehaviorSubject<Album []>([]);
   private sizeAlbumArray=6;
   currentPage$=new BehaviorSubject<number>(0);
@@ -31,7 +33,7 @@ export class MainService {
   constructor() { }
   //Get Called by Main-ListenagainComponent on ngOnInit function
   GetAllAlbums(){
-    this.httpClient.get<Album[]>('https://mocki.io/v1/fdcb0ba1-e600-49a0-97c2-681759e14fa5').pipe(map((res: any) => res)).subscribe(result=>{
+    this.httpClient.get<Album[]>(GlobalConstant.UrlAlbums).pipe(map((res: any) => res)).subscribe(result=>{
       this.currentAlbums$.next(result);
       this.currentPage$.next(1);
     });
@@ -54,8 +56,4 @@ export class MainService {
       return albums?.slice(startIndex, endIndex);
     }
   }
-  // GetNextPageAlbum(){
-  //   this.currentAlbums$.next(this.currentAlbums$.value + 1)
-  // }
-
 }
