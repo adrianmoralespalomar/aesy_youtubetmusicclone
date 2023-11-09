@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, inject } from '@angular/core';
+import { collapseCategoryFromLogo } from '@app/shared/hooks/logo.actions.ts';
+import {Store} from '@ngrx/store';
 @Component({
   selector: 'app-header-logo',
   templateUrl: './header-logo.component.html',
@@ -8,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   imports: []
 })
 export class HeaderLogoComponent implements OnInit {
-
+  store= inject(Store);
+  isLogoCollapsed=false;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+  CollapseCategoryHook(){
+    this.isLogoCollapsed=this.isLogoCollapsed==true?false:true;
+    this.store.dispatch(collapseCategoryFromLogo({isCollapdsed:this.isLogoCollapsed}));
   }
-
 }

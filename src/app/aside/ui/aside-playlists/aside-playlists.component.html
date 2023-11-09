@@ -1,4 +1,4 @@
-<section class="">
+<section *ngIf="(isCollapsed$ | async) == false">
   <div class="px-3 ">
     <button type="button" class="flex flex-row justify-center w-full bg-white/10 hover:bg-white/20 h-9 items-center rounded-3xl">
       <img class="mr-2 invert" src="assets/images/aside/addPlaylistIcon.svg" width="24" height="24" alt="Icono de Añadir nueva Lista de Reproduccion de Youtube Music Realizado por Adrian Morales">

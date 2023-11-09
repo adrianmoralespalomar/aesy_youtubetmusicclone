@@ -1,3 +1,22 @@
-<section class="bg-[#030303] border-b-[1px] border-[#303030] h-[100%]">
-    Footer
+<section class="flex flex-row flex-wrap content-center items-center text-center bg-[#212121] border-b-[1px] border-[#303030] h-[100%]">
+    <div class="grow flex flex-row">
+        <button type="button" class="p-2">
+            <img class="invert" src="assets/images/footer/prevSong.svg" width="24px" height="24px" alt="Icono de Reproducir Canción Anterior Youtube Music Realizado por Adrian Morales">
+        </button>
+        <button type="button" class="p-2" (click)="PlaySong()">
+            <img class="invert" [src]="isPlaying==false || isPlaying==undefined?'assets/images/footer/playSong.svg':'assets/images/footer/pauseSong.svg'" width="40px" height="40px" alt="Icono de Reproducir Canción Anterior Youtube Music Realizado por Adrian Morales">
+        </button>
+        <button type="button" class="p-2">
+            <img class="invert" src="assets/images/footer/nextSong.svg" width="24px" height="24px" alt="Icono de Reproducir Canción Anterior Youtube Music Realizado por Adrian Morales">
+        </button>
+        <span [ngClass]="isPlaying!=undefined?'':'opacity-0'" class="self-center">{{omgomgomg |  SecToMin}} / {{audioSong.duration | SecToMin}}</span>
+        <audio class="hidden" controls></audio>
+    </div>
+    <div class="grow-[3] flex flex-col flex-wrap content-center">
+        <span class="font-bold text-[16px] self-start">KILL MY DOUBT</span>
+        <span class="text-[14px] self-start text-white/70">EP * ITZY</span>  
+    </div>
+    <div class="grow">
+        
+    </div>
 </section>

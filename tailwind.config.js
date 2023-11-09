@@ -15,6 +15,9 @@ module.exports = {
       },
       gridTemplateRows: {
         '1frauto': '1fr auto',
+      },
+      flexGrow: {
+        3: '3'
       }
     },
   },
