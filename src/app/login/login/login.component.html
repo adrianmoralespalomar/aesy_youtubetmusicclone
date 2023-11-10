@@ -1,0 +1,26 @@
+<style>
+  .inputAni + label{
+    transition: 0.3s all;
+  }
+  .inputAni:focus +label,.inputAni:not(:placeholder-shown) +label{
+    top:-25px;
+  }
+</style>
+<main class="flex justify-center items-center w-screen h-screen bg-white ">
+  <form class="w-[450px] h-auto bg-[#181a1b] border border-white/20 text-white flex flex-col items-center flex-wrap rounded-md p-10 gap-5" [formGroup]="formGroup" #ngForm="ngForm" (ngSubmit)="CheckLogin()" >
+    <img src="assets/images/header/youtubemusicLogo.svg" width="80" height="24" alt="Icono de Youtube Music Realizado por Adrian Morales">
+    <h1 class="text-3xl">Sign In</h1>
+    <h2> to continue to Youtube Music</h2>
+    <div class="w-full relative">
+      <input [ngClass]="formGroup.get('username')?.errors && ngForm.submitted ? 'border-red-700':'border-white/20'" class="inputAni rounded-md border w-full bg-transparent h-14 p-4 relative z-30" type="text" placeholder=" " formControlName="username">
+      <label class="absolute top-4 left-4 text-gray-400" for="">User</label>
+      <span class="block min-h-[30px] text-red-500" [ngClass]="{'opacity-0': !ngForm.submitted}"> {{formGroup.get('username')?.errors?'Username must be 3 characters or more':''}}</span>
+    </div>
+    <div class="w-full relative">
+      <input [ngClass]="formGroup.get('password')?.errors && ngForm.submitted ? 'border-red-700':'border-white/20'" class="inputAni rounded-md border w-full bg-transparent h-14 p-4 relative z-30" type="text" placeholder=" " formControlName="password">
+      <label class="absolute top-4 left-4 text-gray-400" for="">Password</label>
+      <span class="block min-h-[30px] text-red-500" [ngClass]="{'opacity-0': !ngForm.submitted}"> {{formGroup.get('password')?.errors?'Password can not be empty (try with 123456)':''}}</span>
+    </div>
+    <button class="bg-[#125ab8] hover:bg-[#284d7c] px-6 py-2 rounded-md" type="submit">Log in</button>
+  </form>
+</main>

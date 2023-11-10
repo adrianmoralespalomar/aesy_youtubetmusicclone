@@ -1,0 +1,14 @@
+main{
+    grid-template-columns: 240px 1fr 1fr;
+    grid-template-rows: auto 1fr 64px;
+    grid-template-areas: 
+    "header header header"
+    "aside main main"
+    "footer footer footer";
+  }
+  main.Collapsea{
+    grid-template-columns: 72px 1fr 1fr;
+  }
+  main.noCollapsed{
+    grid-template-columns: 240px 1fr 1fr;
+  }

@@ -14,7 +14,7 @@ export class FooterComponent implements OnInit {
 
   audioSong = new Audio();
   isNaN: Function = Number.isNaN;
-  omgomgomg=0;
+  currTime=0;
   isPlaying:boolean | undefined;
   constructor() { }
 
@@ -26,7 +26,7 @@ export class FooterComponent implements OnInit {
       this.audioSong.volume=0.2;
       this.audioSong.play();
       this.audioSong.ontimeupdate= (event) => {
-        this.omgomgomg=this.audioSong.currentTime;
+        this.currTime=this.audioSong.currentTime;
       };
       this.audioSong.onended= (event) => {
         this.isPlaying=false;

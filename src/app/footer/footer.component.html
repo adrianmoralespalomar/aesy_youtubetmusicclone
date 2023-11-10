@@ -9,7 +9,7 @@
         <button type="button" class="p-2">
             <img class="invert" src="assets/images/footer/nextSong.svg" width="24px" height="24px" alt="Icono de Reproducir Canción Anterior Youtube Music Realizado por Adrian Morales">
         </button>
-        <span [ngClass]="isPlaying!=undefined?'':'opacity-0'" class="self-center">{{omgomgomg |  SecToMin}} / {{audioSong.duration | SecToMin}}</span>
+        <span [ngClass]="isPlaying!=undefined?'':'opacity-0'" class="self-center">{{currTime |  SecToMin}} / {{(isNaN(audioSong.duration)?0:audioSong.duration) | SecToMin}}</span>
         <audio class="hidden" controls></audio>
     </div>
     <div class="grow-[3] flex flex-col flex-wrap content-center">

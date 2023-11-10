@@ -1,30 +1,25 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AsyncPipe, CommonModule, NgClass } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { AsideComponent } from '@app/aside/aside.component';
-import { FooterComponent } from './footer/footer.component';
-import { MainComponent } from './main/main.component';
-import { HeaderComponent } from './header/header.component';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { selectIsCollapdsed } from './shared/hooks/logo.selectors';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+import { GlobalConstant } from 'src/constants/global-constant';
 
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  template: '<router-outlet></router-outlet>',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,AsideComponent,HeaderComponent,FooterComponent,MainComponent,AsyncPipe,NgClass]
+  imports: [RouterOutlet]
 })
 export class AppComponent {
-  
-  store = inject(Store);
-  isCollapsed$:Observable<boolean> = new Observable();
+  isLogged=false;
+  route = inject(Router);
   constructor() { }
 
   ngOnInit() {
-    this.isCollapsed$ = this.store.select(selectIsCollapdsed);
+    const logged=localStorage.getItem(GlobalConstant.Cookie_key_logged);
+    if(logged && logged!=''){
+      //this.route.navigate(['']);
+    }
+    else this.route.navigate(['login']);
   }
 
 }
